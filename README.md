@@ -4,7 +4,7 @@ Ruby 2.4.0
 Rails 5.1.4
 Homebrew 1.3.4
 
-<<<CREATE APP>>>
+<<<>>>CREATE APP<<<>>>
 
 rails new bindler --database=postgresql
 cd bindler
@@ -25,7 +25,7 @@ change config/database.yml ->
 
 
 
-<<<ADD DEVISE>>>
+<<<>>>ADD DEVISE<<<>>>
 
 add to gemfile -> gem 'devise', '~> 4.3'
 bundle 
@@ -53,7 +53,7 @@ CLI: rake db:migrate
 
 
 
-<<<ADD ACTIVEADMIN>>>
+<<<>>>ADD ACTIVEADMIN<<<>>>
 
 gem 'activeadmin', '~> 1.1'
 CLI: bundle
@@ -68,7 +68,7 @@ CLI: rake db:seed
 
 
 
-<<<ADD BOOTSTRAP>>>
+<<<>>>ADD BOOTSTRAP<<<>>>
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
@@ -87,7 +87,7 @@ add to app/assets/javascripts/application.js above existing requires ->
 
 
 
-<<<ADD PAPERCLIP>>>
+<<<>>>ADD PAPERCLIP<<<>>>
 
 add to config/environments/development.rb -> Paperclip.options[:command_path] = "/usr/local/bin/"
 
@@ -112,7 +112,7 @@ CLI: rake db:migrate
 
 
 
-<<<CONTROLLERS, VIEWS, AND ROUTING>>>
+<<<>>>CONTROLLERS, VIEWS, AND ROUTING<<<>>>
 
 CLI: rails g controller creators
 CLI: rails g controller users
