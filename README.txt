@@ -6,18 +6,16 @@ Homebrew 1.3.4
 
 <<<>>>CREATE APP<<<>>>
 
-rails new bindler --database=postgresql
-cd bindler
-
-
-psql postgres
-CREATE DATABASE bindler;
-\q
-
+CLI: rails new bindler --database=postgresql
+CLI: cd bindler
+CLI: psql postgres
+CLI: CREATE DATABASE bindler;
+CLI: \q
 
 change config/database.yml -> 
 	in development:, test:, and production:,
-		change name of database: to bindler
+		change name of database: ->
+			bindler
 
 ~git commit~
 
@@ -28,15 +26,16 @@ change config/database.yml ->
 <<<>>>ADD DEVISE<<<>>>
 
 add to gemfile -> gem 'devise', '~> 4.3'
-bundle 
 
+CLI: bundle 
 CLI: rails generate devise:install
 
-add to config/environments/development.rb -> config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } 
+add to config/environments/development.rb -> 
+	config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } 
 
 add to app/views/layouts/application.html.erb., in body, above yield tag ->
 	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+	<p class="alert"><%= alert %></p>
     
 add to config/routes.rb ->
 	devise_for :creators
@@ -73,7 +72,9 @@ CLI: rake db:seed
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
-add to app/assets/stylesheets/application.scss, at the bottom (change extension on application.css) ->
+change extension of application.css -> .scss
+
+add to app/assets/stylesheets/application.scss, below comment block ->
 	@import "bootstrap-sprockets";
 	@import "bootstrap";
 
@@ -96,11 +97,16 @@ brew install imagemagick
 add to gemfile -> gem "paperclip", "~> 5.0.0"
 
 add to app/models/creator ->
-	has_attached_file :creator_img, styles: { medium: "450x450>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-	validates_attachment_content_type :creator_img, content_type: /\Aimage\/.*\z/ 
+	has_attached_file :creator_img, styles: { medium: "450x450>", thumb: "100x100>" }, 
+	default_url: "/images/:style/missing.png"
+	validates_attachment_content_type :creator_img, 
+	content_type: /\Aimage\/.*\z/ 
+
 add to app/models/user->
-	has_attached_file :user_img, styles: { medium: "450x450>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-	validates_attachment_content_type :user_img, content_type: /\Aimage\/.*\z/ 
+	has_attached_file :user_img, styles: { medium: "450x450>", thumb: "100x100>" }, 
+	default_url: "/images/:style/missing.png"
+	validates_attachment_content_type :user_img, 
+	content_type: /\Aimage\/.*\z/ 
 
 CLI: rails generate paperclip creator creator_img
 CLI: rails generate paperclip user user_img
