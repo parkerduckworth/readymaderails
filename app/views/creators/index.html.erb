@@ -2,7 +2,7 @@
 
 <div class="row">
 	
-	<%= @creators.each do |creator| %>
+	<% @creators.each do |creator| %>
 		<div>
 			<a href="/creators/<%= creator.id %>">
 				<%= image_tag creator.creator_img.url(:medium), class: "creator" %>
